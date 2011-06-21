@@ -30,8 +30,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 /*in case of troubles with a particular driver, try incrementing ALSA_PERIOD_SIZE
 to 512, 1024, 2048, 4096...
 then try incrementing the number of periods*/
-#define ALSA_PERIODS 8
-#define ALSA_PERIOD_SIZE 256
+#define ALSA_PERIODS 16
+#define ALSA_PERIOD_SIZE 512
 
 /*uncomment the following line if you have problems with an alsa driver
 having sound quality trouble:*/
