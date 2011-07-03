@@ -125,6 +125,9 @@ int yuv_buf_init_from_mblk(YuvBuf *buf, mblk_t *m){
 	}else if (size==(320*200*3)/2){/*format used by gTalk */
 		w=320;
 		h=200;
+	}else if (size==(480*320*3)/2){/* 480x320 */
+		w=480;
+		h=320;
 	}else {
 		ms_error("Unsupported image size: size=%i (bug somewhere !)",size);
 		return -1;

@@ -123,14 +123,14 @@ AC_DEFUN([MS_CHECK_VIDEO],[
 			  *) AC_MSG_ERROR(bad value ${enableval} for --disable-sdl) ;;
 		  	  esac],[enable_sdl=true])
 
-			sdl_found=no
-			if test "$enable_sdl" = "true"; then
-				   PKG_CHECK_MODULES(SDL, [sdl >= 1.2.0 ],sdl_found=yes,sdl_found=no)
+			sdl_found=yes
+			dnl if test "$enable_sdl" = "true"; then
+			dnl 	   PKG_CHECK_MODULES(SDL, [sdl >= 1.2.0 ],sdl_found=yes,sdl_found=no)
 
-		   		   if test "$sdl_found" = "no" && test "$mingw_found" != "yes"; then
-				      AC_MSG_ERROR([Could not find libsdl headers and library. This is mandatory for video support])
-		   		  fi
-			fi
+		   	dnl 	   if test "$sdl_found" = "no" && test "$mingw_found" != "yes"; then
+			dnl 	      AC_MSG_ERROR([Could not find libsdl headers and library. This is mandatory for video support])
+		   	dnl 	  fi
+			dnl fi
 
 			AC_ARG_ENABLE(x11,
 			  [  --disable-x11    Disable X11 support],

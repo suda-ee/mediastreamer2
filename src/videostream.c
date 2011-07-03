@@ -179,8 +179,10 @@ VideoStream *video_stream_new(int locport, bool_t use_ipv6){
 	stream->evq=ortp_ev_queue_new();
 	stream->rtpsend=ms_filter_new(MS_RTP_SEND_ID);
 	rtp_session_register_event_queue(stream->session,stream->evq);
-	stream->sent_vsize.width=MS_VIDEO_SIZE_CIF_W;
-	stream->sent_vsize.height=MS_VIDEO_SIZE_CIF_H;
+	// stream->sent_vsize.width=MS_VIDEO_SIZE_CIF_W;
+	// stream->sent_vsize.height=MS_VIDEO_SIZE_CIF_H;
+	stream->sent_vsize.width=480;
+	stream->sent_vsize.height=320;
 	stream->dir=VideoStreamSendRecv;
 	choose_display_name(stream);
 
@@ -354,8 +356,10 @@ int video_stream_start (VideoStream *stream, RtpProfile *profile, const char *re
 		ms_filter_call_method(stream->decoder,MS_FILTER_SET_PIX_FMT,&format);
 
 		/*configure the display window */
-		disp_size.width=MS_VIDEO_SIZE_CIF_W;
-		disp_size.height=MS_VIDEO_SIZE_CIF_H;
+		// disp_size.width=MS_VIDEO_SIZE_CIF_W;
+		// disp_size.height=MS_VIDEO_SIZE_CIF_H;
+		disp_size.width=480;
+		disp_size.height=320;
 		tmp=1;
 		ms_filter_call_method(stream->output,MS_FILTER_SET_VIDEO_SIZE,&disp_size);
 		ms_filter_call_method(stream->output,MS_VIDEO_DISPLAY_ENABLE_AUTOFIT,&tmp);
